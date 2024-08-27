@@ -4,6 +4,7 @@ To commit in Github
 git add filename // to add specific file.
 git add . //to add all file.
 git commit -am "message" // to commit with message.
+git push // to push these file in Github
 
 rm filename to remove file.
 
