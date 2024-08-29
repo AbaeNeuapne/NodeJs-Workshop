@@ -3,7 +3,11 @@
 require("dotenv").config()
 const express = require('express')
 const { blogs, users } = require('./model/index')
-// const { users } = require('./model/index')
+
+// const multer=require('./middleware/multerConfig').multer
+// const storage=require('./middleware/multerConfig').storage
+const {multer,storage}=require("./middleware/multerConfig")
+const upload=multer({storage:storage})
 const app = express()
 
 app.use(express.static('./public'))
@@ -18,7 +22,7 @@ app.get("/create",(req,res)=>{
 })
 
 
-app.post("/create", async(req,res)=>{
+app.post("/create", upload.single('image') /*for accepting single image */,async(req,res)=>{
     //    const title=req.body.title
     //    const subtitle=req.body.subtitle
     //    const description=req.body.description

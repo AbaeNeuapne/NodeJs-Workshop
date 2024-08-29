@@ -11,3 +11,4 @@ rm filename to remove file.
 Express can't handle files by default so there is middleware
 middleware is the daalal who translate image file from frontend to backend.
 middleware eg: busboy which is not used in 21st century, multer: revised verson of busboy, tyo chai npm dokan ma xa tya bata tanni ava "npm i multer".
+
