@@ -1,40 +1,50 @@
-
+require('dotenv').config()
 // const app = require('express')()
-require("dotenv").config()
 const express = require('express')
-const { blogs, users } = require('./model/index')
+const { blogs, sequelize } = require('./model/index')
+// const multer = require('./middleware/multerConfig').multer
+// const storage = require('./middleware/multerConfig').storage
+const {multer,storage,storage2,storage3} = require('./middleware/multerConfig')
+const upload = multer({storage:storage})
 
-// const multer=require('./middleware/multerConfig').multer
-// const storage=require('./middleware/multerConfig').storage
-const {multer,storage}=require("./middleware/multerConfig")
-const upload=multer({storage:storage})
+
 const app = express()
 
-app.use(express.static('./public'))
-app.use(express.urlencoded({extended: true}))
+// app.use(express.json())
+
 app.set('view engine','ejs')
 require("./model/index")
-// app.use(express.json)
+app.use(express.urlencoded({extended : true}))
 
-
-app.get("/create",(req,res)=>{
-    res.render("create.ejs")
+app.get("/",async (req,res)=>{
+   const datas = await blogs.findAll() // select * from blogs
+  
+   res.render("home",{blogs : datas})
 })
 
 
-app.post("/create", upload.single('image') /*for accepting single image */,async(req,res)=>{
-    //    const title=req.body.title
-    //    const subtitle=req.body.subtitle
-    //    const description=req.body.description
-    const {title,subtitle,description}=req.body
-    
-    await blogs.create({
-        title:title,        //title     //if lhs and rhs are same
-        subtitle:subtitle,  //subtitle
-        description:description //description
+app.get("/create",(req,res)=>{
+    res.render("create")
+
+})
+
+
+app.post('/create',upload.single('image') ,async (req,res)=>{
+    // const title = req.body.title 
+    // const subtitle = req.body.subtitle 
+    // const description = req.body.description
+ 
+   const filename = req.file.filename
+    const {title,subtitle,description} = req.body 
+   await blogs.create({
+        title : title,
+        subtitle : subtitle, 
+        description : description, 
+        image : filename
+       
     })
     res.send("Blog added successfully")
-    
+
 })
 
 app.get("/user",(req,res)=>{
@@ -60,6 +70,13 @@ app.post("/user", async(req,res)=>{
 })
 
 
+
+app.use(express.static('./public/'))
+app.use(express.static('./storage/'))
+
 app.listen(3000,()=>{
     console.log("project suru vayo hai tw nodejs ko")
 })
+
+
+
