@@ -4,6 +4,8 @@ const {Sequelize, DataTypes} = require('sequelize') //common gs
 const databaseConfig = require('../config/dbConfig')
 const makeblogTable = require('./blogModel')
 const makeuserTable = require('./userModel')
+const makeregisterTable = require('./registerModel')
+
 // or const sequelize= require('sequelize')
 
 console.log(databaseConfig.user)
@@ -39,6 +41,7 @@ db.sequelize = sequelize
 
 db.blogs=makeblogTable(sequelize,  DataTypes)
 db.users=makeuserTable(sequelize,  DataTypes)
+db.registers=makeregisterTable(sequelize, DataTypes)
 
 
 
