@@ -6,7 +6,7 @@ const databaseConfig = {
     password: process.env.PASSWORD,
     host: process.env.HOST,
     dialect: 'mysql',
-    port: 29703,
+    port: 29703
 }
 
 module.exports = databaseConfig
