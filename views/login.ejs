@@ -76,24 +76,20 @@ body {
     background-color: whitesmoke;
     margin-top: 8px;
 }
+.btn:hover{
+    background-color: #575757;
+    cursor: pointer;
+}
      </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">My Website</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
+    <%-include('./navbar.ejs') %>
     <!-- Form Section -->
      <section class="form">
     <div class="form-container">
         <h2>Login User</h2>
-        <action="/login" method="post">
+        <form action="/login" method="post">
             <div class="form-group">
                 <label for="email">email:</label>
                 <input type="email" id="email" name="email" required>

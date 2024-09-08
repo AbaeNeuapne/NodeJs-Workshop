@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Example</title>
-    <!-- <link rel="stylesheet" href="create.css"> -->
-     <style>
+
+<style>
         /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -82,15 +82,7 @@ body {
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">My Website</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
+   <%-include('./navbar.ejs')%>
     <!-- Form Section -->
      <section class="form">
     <div class="form-container">

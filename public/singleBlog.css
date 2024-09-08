@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <style>
-        /* General styles */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -107,23 +100,3 @@ a {
 .delete-button:hover {
     background-color: #c0392b;
 }
-    </style>
-
-</head>
-<body>
-    <!-- Navbar -->
-   <%- include('./navbar.ejs')  %>
-
-
-    <!-- Blog Details Section -->
-    <div class="blog-details">
-            <img src="http://localhost:3000/<%- blog.image %>" alt="Blog Image" class="blog-image">
-            <div class="blog-content">
-                <h1 class="blog-title"><%- blog.title %></h1>
-                <h2 class="blog-subtitle"><%- blog.subtitle %></h2>
-                <p class="blog-description"><%- blog.description %></p>
-                <a href="/delete/<%- blog.id %>" class="delete-button">Delete Me</a>
-            </div>
-    </div>
-</body>
-</html>

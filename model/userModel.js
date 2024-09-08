@@ -1,4 +1,4 @@
-const makeuserTable=(sequelize, DataTypes)=>{
+const makeUserTable=(sequelize, DataTypes)=>{
     const user=sequelize.define('user',{
         // username: {
         //     type: DataTypes.STRING,
@@ -52,4 +52,4 @@ const makeuserTable=(sequelize, DataTypes)=>{
     })
     return user
 }
-module.exports= makeuserTable
+module.exports= makeUserTable

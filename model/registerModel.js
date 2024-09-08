@@ -1,4 +1,4 @@
-const makeregisterTable = (sequelize,DataTypes)=>{
+const makeRegisterTable = (sequelize,DataTypes)=>{
     const register =  sequelize.define('register',{
          username : {
              type : DataTypes.STRING, 
@@ -17,4 +17,4 @@ const makeregisterTable = (sequelize,DataTypes)=>{
      return register
  }
  
- module.exports = makeregisterTable
+ module.exports = makeRegisterTable
