@@ -6,7 +6,7 @@ const databaseConfig = {
     password: process.env.PASSWORD,
     host: process.env.HOST,
     // port: 3306,             //for local host
-    port: 50034,         //for online host
+    port: 22945,         //for online host
     dialect: 'mysql'
 }
 
