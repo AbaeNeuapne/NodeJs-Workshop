@@ -1,6 +1,6 @@
 
 const {registers} = require('../model/index')
-const bcrypt= require('bcryptjs')
+const bcryptjs= require('bcryptjs')
 
 exports.registerUser= async (req,res)=>{
 
