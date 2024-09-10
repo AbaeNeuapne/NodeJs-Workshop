@@ -1,5 +1,5 @@
 
-const {registers} = require('c:/Users/abene/Desktop/node/model/index')
+const {registers} = require('../model/index')
 const bcrypt= require('bcrypt')
 
 exports.registerUser= async (req,res)=>{
