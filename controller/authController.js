@@ -1,6 +1,6 @@
 
 const {registers} = require('../model/index')
-const bcrypt= require('bcrypt')
+const bcrypt= require('bcryptjs')
 
 exports.registerUser= async (req,res)=>{
 
@@ -9,7 +9,7 @@ exports.registerUser= async (req,res)=>{
     await registers.create({
         username,
         email,
-        password: bcrypt.hashSync(password,8) //bcrypt will hash our password into complex form
+        password: bcryptjs.hashSync(password,8) //bcrypt will hash our password into complex form
     })
     res.redirect("/login")
 }
